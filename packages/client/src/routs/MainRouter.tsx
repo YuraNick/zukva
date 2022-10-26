@@ -9,12 +9,13 @@ import { LeaderBoardPage } from '../components/pages/leaderBoardPage/leaderBoard
 import { ForumPage } from '../components/pages/forumPage/forumPage'
 import { ProfilePage } from '../components/pages/profile/profile'
 import { GamePage } from '../components/pages/gamePage/gamePage'
+import ProtectedRoute from '../HOC/ProtectedRout'
 
 
 export const MainRouter: React.FC = () => {
 
 
-  const auth = true // mock auth
+  const isAuth = true // mock auth
 
 
   return (
@@ -24,11 +25,17 @@ export const MainRouter: React.FC = () => {
 
         <Route path={ ROUTS.LOGIN_PAGE } element={ <LoginPage /> } />
         <Route path={ ROUTS.REGISTER_PAGE } element={ <RegisterPage /> } />
-        <Route path={ ROUTS.LEADERBOARD_PAGE } element={ <LeaderBoardPage /> } />
-        <Route path={ ROUTS.FORUM_PAGE } element={ <ForumPage /> } />
-        <Route path={ ROUTS.PROFILE_PAGE } element={ <ProfilePage /> } />
-        <Route path={ ROUTS.GAME_PAGE } element={ <GamePage /> } />
+        <Route path={ ROUTS.LEADERBOARD_PAGE }
+               element={ <ProtectedRoute isAuth={ isAuth }><LeaderBoardPage /></ProtectedRoute> } />
+        <Route path={ ROUTS.FORUM_PAGE } element={ <ProtectedRoute isAuth={ isAuth }><ForumPage /></ProtectedRoute> } />
+
+        <Route path={ ROUTS.PROFILE_PAGE } element={
+          <ProtectedRoute isAuth={ isAuth }>
+            <ProfilePage />
+          </ProtectedRoute> } />
+        <Route path={ ROUTS.GAME_PAGE } element={ <ProtectedRoute isAuth={ isAuth }><GamePage /></ProtectedRoute> } />
         <Route path={ ROUTS.START_PAGE } element={ <StartPage /> } />
+
       </Routes>
     </ErrorBoundary>
 
