@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Navigate } from 'react-router-dom'
+import { Navigate} from 'react-router-dom'
 import { ROUTS } from '../routs/routsList'
 
 type typeProtectedRout = {
@@ -11,8 +11,10 @@ const ProtectedRoute:React.FC<typeProtectedRout> = ({
                           isAuth,
                           children,
                         }) => {
+
   if (!isAuth) {
-    return <Navigate to={ROUTS.LOGIN_PAGE} replace />;
+
+    return <Navigate to={ROUTS.LOGIN_PAGE} replace={true}/>
   }
 
   return children;

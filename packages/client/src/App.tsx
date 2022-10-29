@@ -4,6 +4,8 @@ import { MainRouter } from '../src/routs/MainRouter'
 
 function App() {
 
+  const isAuth = true  // mock auth
+
   // get data from local server
 
   // useEffect(() => {
@@ -18,7 +20,7 @@ function App() {
   // }, [])
   return (
     <div className='App'>
-    <MainRouter />
+    <MainRouter isAuth={isAuth}/>
   </div> )
 }
 

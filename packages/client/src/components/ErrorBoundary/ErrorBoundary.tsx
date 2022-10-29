@@ -26,8 +26,8 @@ class ErrorBoundary extends Component<Props, State> {
     public render() {
         if (this.state.hasError) {
             return (
-                <div className="p-6 border rounded border-gray-100">
-                    <h1 className="px-4 py-4 flex flex-col gap-2 items-center text-gray-700">
+                <div >
+                    <h1 >
 
                         <p>Something went wrong...</p>
                         <p>But we are already fixing</p>

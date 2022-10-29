@@ -12,10 +12,12 @@ import { GamePage } from '../components/pages/gamePage/gamePage'
 import ProtectedRoute from '../HOC/ProtectedRout'
 
 
-export const MainRouter: React.FC = () => {
+interface IMainRouter {
+  isAuth: boolean
+}
 
+export const MainRouter: React.FC<IMainRouter> = ({isAuth}) => {
 
-  const isAuth = true // mock auth
 
 
   return (
@@ -34,7 +36,7 @@ export const MainRouter: React.FC = () => {
             <ProfilePage />
           </ProtectedRoute> } />
         <Route path={ ROUTS.GAME_PAGE } element={ <ProtectedRoute isAuth={ isAuth }><GamePage /></ProtectedRoute> } />
-        <Route path={ ROUTS.START_PAGE } element={ <StartPage /> } />
+        <Route path={ ROUTS.START_PAGE } index element={ <StartPage /> }></Route>
 
       </Routes>
     </ErrorBoundary>
