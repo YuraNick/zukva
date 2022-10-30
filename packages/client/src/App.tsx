@@ -4,7 +4,7 @@ import { MainRouter } from '../src/routs/MainRouter'
 
 function App() {
 
-  const isAuth = true  // mock auth
+  const isAuth = true // mock auth
 
   // get data from local server
 
@@ -20,8 +20,8 @@ function App() {
   // }, [])
   return (
     <div className='App'>
-    <MainRouter isAuth={isAuth}/>
-  </div> )
+      <MainRouter isAuth={ isAuth } />
+    </div> )
 }
 
 export default App
